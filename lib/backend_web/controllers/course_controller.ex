@@ -9,6 +9,7 @@ defmodule BackendWeb.CourseController do
     render(conn, "index.json", courses: courses)
   end
 
+  @spec show(Plug.Conn.t(), map) :: Plug.Conn.t()
   def show(conn, %{"id" => id}) do
     course = CourseModel.show(id)
     render(conn, "show.json", course: course)
