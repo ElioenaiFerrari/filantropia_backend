@@ -2,8 +2,6 @@ defmodule Backend.Repo.Migrations.Contacts do
   use Ecto.Migration
 
   def change do
-    create unique_index(:contacts, [:email, :cellphone])
-
     create table(:contacts) do
       add :cellphone, :string
       add :phone, :string
@@ -18,5 +16,7 @@ defmodule Backend.Repo.Migrations.Contacts do
 
       timestamps()
     end
+
+    create unique_index(:contacts, [:email, :cellphone])
   end
 end

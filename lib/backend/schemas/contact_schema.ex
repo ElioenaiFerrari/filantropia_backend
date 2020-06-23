@@ -14,7 +14,7 @@ defmodule Backend.ContactSchema do
     field :adjunct, :string
     field :zip_code, :string
     field :state, :string
-    belongs_to :candidate, CandidateSchema
+    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_id
 
     timestamps(type: :utc_datetime)
   end
@@ -29,7 +29,8 @@ defmodule Backend.ContactSchema do
       :district,
       :number,
       :adjunct,
-      :zip_code
+      :zip_code,
+      :state
     ])
     |> validate_required([
       :cellphone,
