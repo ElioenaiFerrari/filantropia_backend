@@ -10,7 +10,7 @@ defmodule Backend.CandidateSchema do
   schema "candidates" do
     field :name, :string
     field :sex, :string
-    field :birthday, :utc_datetime
+    field :birthday, :string
     has_one :contact, ContactSchema
     has_many :courses, CourseSchema
     has_one :questionnaire, QuestionnaireSchema

@@ -5,7 +5,7 @@ defmodule Backend.Repo.Migrations.Candidates do
     create table("candidates") do
       add :name, :string
       add :sex, :string
-      add :birthday, :utc_datetime
+      add :birthday, :string
 
       timestamps()
     end
