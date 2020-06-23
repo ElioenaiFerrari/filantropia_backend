@@ -8,6 +8,7 @@ defmodule BackendWeb.Router do
   scope "/api", BackendWeb do
     pipe_through :api
 
-    post "/send", CandidateController, :store
+    get "/candidates", CandidateController, :index
+    get "/candidates/:id", CandidateController, :show
   end
 end
