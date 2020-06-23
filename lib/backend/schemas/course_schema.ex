@@ -6,7 +6,7 @@ defmodule Backend.CourseSchema do
 
   schema "courses" do
     field :course, :string
-    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_schema_id
+    belongs_to :candidate, CandidateSchema
 
     timestamps(type: :utc_datetime)
   end

@@ -14,7 +14,7 @@ defmodule Backend.ContactSchema do
     field :adjunct, :string
     field :zip_code, :string
     field :state, :string
-    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_schema_id
+    belongs_to :candidate, CandidateSchema
 
     timestamps(type: :utc_datetime)
   end
