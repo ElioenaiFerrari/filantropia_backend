@@ -2,7 +2,9 @@ defmodule Backend.Repo.Migrations.Contacts do
   use Ecto.Migration
 
   def change do
-    create table("contacts") do
+    create unique_index(:contacts, [:email, :cellphone])
+
+    create table(:contacts) do
       add :cellphone, :string
       add :phone, :string
       add :email, :string
