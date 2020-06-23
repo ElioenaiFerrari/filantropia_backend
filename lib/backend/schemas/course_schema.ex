@@ -5,7 +5,7 @@ defmodule Backend.CourseSchema do
   alias Backend.CandidateSchema
 
   schema "courses" do
-    field :courses, {:array, :string}
+    field :course, :string
     belongs_to :candidate, CandidateSchema, foreign_key: :candidate_schema_id
 
     timestamps(type: :utc_datetime)

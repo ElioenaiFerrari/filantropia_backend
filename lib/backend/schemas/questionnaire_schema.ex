@@ -3,12 +3,14 @@ defmodule Backend.QuestionnaireSchema do
   import Ecto.Changeset
 
   alias Backend.EnemSchema
+  alias Backend.CandidateSchema
 
   schema "questionnaires" do
     field :training, :string
     field :is_teacher, :boolean
     field :is_linked, :boolean
     has_one :enem, EnemSchema
+    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_schema_id
 
     timestamps(type: :utc_datetime)
   end

@@ -4,12 +4,13 @@ defmodule Backend.FamilySchema do
 
   alias Backend.VehicleSchema
   alias Backend.MemberSchema
+  alias Backend.CandidateSchema
 
   schema "families" do
     field :housing_type, :string
     has_many :vehicles, VehicleSchema, foreign_key: :family_id
     has_many :members, MemberSchema, foreign_key: :family_id
-
+    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_schema_id
     timestamps(type: :utc_datetime)
   end
 
