@@ -2,7 +2,7 @@ defmodule Backend.Repo.Migrations.Members do
   use Ecto.Migration
 
   def change do
-    create table("members") do
+    create table(:members) do
       add :name, :string
       add :age, :string
       add :relationship, :string
