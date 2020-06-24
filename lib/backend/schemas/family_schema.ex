@@ -16,8 +16,9 @@ defmodule Backend.FamilySchema do
 
   def changeset(family, attrs) do
     family
-    |> cast(attrs, [:housing_type])
     |> cast_assoc(:vehicles)
+    |> cast_assoc(:members)
+    |> cast(attrs, [:housing_type])
     |> validate_required([:housing_type])
   end
 end
