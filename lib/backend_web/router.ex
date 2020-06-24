@@ -9,7 +9,7 @@ defmodule BackendWeb.Router do
     pipe_through :api
 
     resources "/candidates", CandidateController, only: [:create]
-    resources "/contacts", ContactController, only: [:create]
+    resources "/contacts", ContactController, only: [:create, :index]
     resources "/courses", CoursesController, only: [:create]
     resources "/enems", EnemController, only: [:create]
     resources "/families", FamilyController, only: [:create]
