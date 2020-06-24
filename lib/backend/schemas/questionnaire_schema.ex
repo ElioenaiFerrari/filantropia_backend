@@ -10,7 +10,7 @@ defmodule Backend.QuestionnaireSchema do
     field :is_teacher, :boolean
     field :is_linked, :boolean
     has_one :enem, EnemSchema
-    belongs_to :candidate, CandidateSchema
+    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_id
 
     timestamps(type: :utc_datetime)
   end

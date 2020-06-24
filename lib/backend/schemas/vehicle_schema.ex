@@ -8,7 +8,7 @@ defmodule Backend.VehicleSchema do
     field :model, :string
     field :year, :string
     field :utility, :string
-    belongs_to :family, FamilySchema
+    belongs_to :family, FamilySchema, foreign_key: :family_id
 
     timestamps(type: :utc_datetime)
   end

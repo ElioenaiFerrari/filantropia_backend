@@ -12,7 +12,7 @@ defmodule Backend.MemberSchema do
     field :scholarity, :string
     field :profession, :string
     field :income, :integer
-    belongs_to :family, FamilySchema
+    belongs_to :family, FamilySchema, foreign_key: :family_id
 
     timestamps(type: :utc_datetime)
   end
