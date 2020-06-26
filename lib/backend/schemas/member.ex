@@ -12,7 +12,7 @@ defmodule Backend.MemberSchema do
     field :scholarity, :string
     field :profession, :string
     field :income, :integer
-    belongs_to :family, FamilySchema, foreign_key: :family_id
+    belongs_to :family, FamilySchema
 
     timestamps(type: :utc_datetime)
   end
@@ -26,7 +26,8 @@ defmodule Backend.MemberSchema do
       :civil_status,
       :scholarity,
       :profession,
-      :income
+      :income,
+      :family_id
     ])
     |> validate_required([
       :name,
@@ -35,7 +36,8 @@ defmodule Backend.MemberSchema do
       :civil_status,
       :scholarity,
       :profession,
-      :income
+      :income,
+      :family_id
     ])
   end
 end

@@ -10,7 +10,7 @@ defmodule Backend.QuestionnaireSchema do
     field :is_teacher, :boolean
     field :is_linked, :boolean
     has_one :enem, EnemSchema
-    belongs_to :candidate, CandidateSchema, foreign_key: :candidate_id
+    belongs_to :candidate, CandidateSchema
 
     timestamps(type: :utc_datetime)
   end
@@ -20,12 +20,15 @@ defmodule Backend.QuestionnaireSchema do
     |> cast(attrs, [
       :training,
       :is_teacher,
-      :is_linked
+      :is_linked,
+      :candidate_id
     ])
+    |> cast_assoc(:enem)
     |> validate_required([
       :training,
       :is_teacher,
-      :is_linked
+      :is_linked,
+      :candidate_id
     ])
   end
 end

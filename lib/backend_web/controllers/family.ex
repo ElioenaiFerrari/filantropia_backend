@@ -19,7 +19,7 @@ defmodule BackendWeb.FamilyController do
 
     with {
            :ok,
-           %FamilySchema{} = family
+           family
          } <- FamilyModel.update(family, attrs) do
       render(conn, "show.json", family: family)
     end
@@ -39,7 +39,7 @@ defmodule BackendWeb.FamilyController do
   def create(conn, %{"family" => attrs}) do
     with {
            :ok,
-           %FamilySchema{} = attrs
+           attrs
          } <- FamilyModel.create(attrs) do
       conn
       |> put_status(:created)

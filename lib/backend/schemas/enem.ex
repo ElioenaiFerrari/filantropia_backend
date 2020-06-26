@@ -18,7 +18,7 @@ defmodule Backend.EnemSchema do
         ) :: Ecto.Changeset.t()
   def changeset(enem, attrs) do
     enem
-    |> cast(attrs, [:year, :mean])
-    |> validate_required([:year, :mean])
+    |> cast(attrs, [:year, :mean, :questionnaire_id])
+    |> validate_required([:year, :mean, :questionnaire_id])
   end
 end

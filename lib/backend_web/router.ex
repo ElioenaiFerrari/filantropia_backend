@@ -10,7 +10,7 @@ defmodule BackendWeb.Router do
 
     resources "/candidates", CandidateController, only: [:create, :index]
     resources "/contacts", ContactController, only: [:create]
-    resources "/courses", CoursesController, only: [:create]
+    resources "/courses", CourseController, only: [:create]
     resources "/enems", EnemController, only: [:create]
     resources "/families", FamilyController, only: [:create]
     resources "/members", MemberController, only: [:create]

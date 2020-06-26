@@ -18,7 +18,7 @@ defmodule Backend.FamilySchema do
     family
     |> cast_assoc(:vehicles)
     |> cast_assoc(:members)
-    |> cast(attrs, [:housing_type])
-    |> validate_required([:housing_type])
+    |> cast(attrs, [:housing_type, :candidate_id])
+    |> validate_required([:housing_type, :candidate_id])
   end
 end

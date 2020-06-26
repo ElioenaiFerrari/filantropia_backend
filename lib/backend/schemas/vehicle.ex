@@ -8,15 +8,15 @@ defmodule Backend.VehicleSchema do
     field :model, :string
     field :year, :string
     field :utility, :string
-    belongs_to :family, FamilySchema, foreign_key: :family_id
+    belongs_to :family, FamilySchema
 
     timestamps(type: :utc_datetime)
   end
 
   def changeset(vehicle, attrs) do
     vehicle
-    |> cast(attrs, [:model, :year, :utility])
-    |> validate_required([:model, :year, :utility])
+    |> cast(attrs, [:model, :year, :utility, :family_id])
+    |> validate_required([:model, :year, :utility, :family_id])
     |> validate_inclusion(:utility, ["Pessoal", "Comercial"])
   end
 end

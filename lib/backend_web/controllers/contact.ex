@@ -2,7 +2,9 @@ defmodule BackendWeb.ContactController do
   use BackendWeb, :controller
 
   alias Backend.ContactModel
+  alias Backend.CandidateModel
   alias Backend.ContactSchema
+  alias Backend.Repo
 
   def index(conn, _params) do
     contacts = ContactModel.index(ContactSchema)
@@ -36,14 +38,14 @@ defmodule BackendWeb.ContactController do
     end
   end
 
-  def create(conn, %{"contact" => attrs}) do
+  def create(conn, %{"contact" => contact}) do
     with {
            :ok,
-           %ContactSchema{}
-         } <- ContactModel.create(attrs) do
+           contact
+         } <- ContactModel.create(contact) do
       conn
       |> put_status(:created)
-      |> render("show.json", contact: attrs)
+      |> render("show.json", contact: contact)
     end
   end
 end

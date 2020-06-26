@@ -37,14 +37,14 @@ defmodule BackendWeb.CourseController do
     end
   end
 
-  def create(conn, %{"course" => attrs}) do
+  def create(conn, %{"course" => course}) do
     with {
            :ok,
-           %CourseSchema{} = attrs
-         } <- CourseModel.create(attrs) do
+           course
+         } <- CourseModel.create(course) do
       conn
       |> put_status(:created)
-      |> render("show.json", course: attrs)
+      |> render("show.json", course: course)
     end
   end
 end

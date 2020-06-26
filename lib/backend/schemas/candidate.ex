@@ -23,6 +23,10 @@ defmodule Backend.CandidateSchema do
     candidate
     |> cast(attrs, [:name, :sex, :birthday])
     |> validate_required([:name, :sex, :birthday])
+    |> cast_assoc(:contact)
+    |> cast_assoc(:courses)
+    |> cast_assoc(:questionnaire)
+    |> cast_assoc(:family)
     |> validate_inclusion(:sex, ["Masculino", "Feminino", "Outros"])
   end
 end
